@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  lasinlp:
+    image: marcoflarrea/lasi:combo
+    environment: 
+      PORT: 5005
+    command: bash -c "/start.sh"
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - 5005:5005
